@@ -1,9 +1,17 @@
 <?php
 
+/** ***********************************************************************
+ *  TODO: Cleanup this config and beautify the autoloader
+ ** *********************************************************************** */
+
 // this function tries to autoload classes whose definition is unknown to the interpreter at runtime
 function autoload_plista_contest($className) {
-	if (is_readable(dirname(__FILE__) . '/classes/' . $className . '.php')) {
-		require_once dirname(__FILE__) . '/classes/' . $className . '.php';
+	if (is_readable(dirname(__FILE__) . '/library/contest/' . $className . '.php')) {
+		require_once dirname(__FILE__) . '/library/contest/' . $className . '.php';
+	} elseif (is_readable(dirname(__FILE__) . '/library/' . $className . '.php')) {
+		require_once dirname(__FILE__) . '/library/' . $className . '.php';
+	} elseif (is_readable(dirname(__FILE__) . '/library/models/' . $className . '.php')) {
+		require_once dirname(__FILE__) . '/library/models/' . $className . '.php';
 	}
 }
 spl_autoload_register('autoload_plista_contest');
