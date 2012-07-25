@@ -116,7 +116,7 @@ class ContestFeedback extends ContestMessage {
 	}
 	
 	public function __get($name) {
-		if (!in_array($name, array('client', 'domain', 'source', 'target', 'category'))) {
+		if (!in_array($name, array('client', 'domain', 'source', 'target', 'category', 'team'))) {
 			return null;
 		}
 		
@@ -124,7 +124,7 @@ class ContestFeedback extends ContestMessage {
 	}
 
 	public function __isset($name) {
-		if (!in_array($name, array('client', 'domain', 'source', 'target', 'category'))) {
+		if (!in_array($name, array('client', 'domain', 'source', 'target', 'category', 'team'))) {
 			return false;
 		}
 
